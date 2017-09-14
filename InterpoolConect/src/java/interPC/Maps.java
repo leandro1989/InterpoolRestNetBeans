@@ -1,16 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package interPC;
 
-
 /**
- * A classe Maps encapsula os dados e os métodos necessarios para a modelagem de
- * mapas gerados aleatoriamente para o jogo Interpool-Crow.
+ *
+ * @author Leandro
  */
 import java.util.ArrayList;
 import java.util.Random;
-/**
- *
- * @author fc.corporation
- */
+
 public class Maps {
     private int[][] adjacenciesMatrix;
     private int[][] stationBusTaxi;
@@ -26,10 +27,10 @@ public class Maps {
     private int iterador;
     
     /**
-     * O contrutor da classe recebe dois argumentos, daí instancia os objetos
+     * O contrutor da classe recebe dois argumentos, daÃ­ instancia os objetos
      * e seta algumas constantes
      * @param tamanho tamanho das matrizes de adjacencias quadradas, ou seja, NxN
-     * @param quantInLine quantidade de nós da mesma linha
+     * @param quantInLine quantidade de nÃ³s da mesma linha
      */
     public Maps(int tamanho, int quantInLine){
         this.LIMITEEDGE = new int[]{1,tamanho};
@@ -46,8 +47,8 @@ public class Maps {
         this.setAdjacencieMatrix(quantInLine);
     }
     /**
-     * O método setAdjacencieMatrix inicializa todas as matrizes de adjacencias
-     * @param quantInLine quantidade de nós na mesma linha
+     * O mÃ©todo setAdjacencieMatrix inicializa todas as matrizes de adjacencias
+     * @param quantInLine quantidade de nÃ³s na mesma linha
      */
     private void setAdjacencieMatrix(int quantInLine){
         for(int i=0;i < this.adjacenciesMatrix.length;i++){
@@ -69,14 +70,14 @@ public class Maps {
         this.generatorTrainTaxiStation();
     }
     /**
-     * O método coordGenerator gera coordenadas para as estações de taxí
-     * baseados nos dois parâmetros que recebe, sabendo que só gera ligações
+     * O mÃ©todo coordGenerator gera coordenadas para as estaÃ§Ãµes de taxÃ­
+     * baseados nos dois parÃ¢metros que recebe, sabendo que sÃ³ gera ligaÃ§Ãµes
      * para um vertce
-     * @param vertce vertce do qual as ligações partiram tendo destino baseado em
+     * @param vertce vertce do qual as ligaÃ§Ãµes partiram tendo destino baseado em
      * "aleatoriedade"
-     * @param quantInLine quantidade de nós na mesma linha
+     * @param quantInLine quantidade de nÃ³s na mesma linha
      * @return retorna um array com as coordenadas dos vertces destinos para as
-     * ligações há partir de vertce.
+     * ligaÃ§Ãµes hÃ¡ partir de vertce.
      */
     public int[] coordGenerator(int vertce, int quantInLine){
         final int LENEDGES = 2, MAXRANDOMGENERATED = 3, CASE0 = 0, CASE1 = 1, CASE2 = 2;
@@ -109,8 +110,8 @@ public class Maps {
         
     }
     /**
-     * O método imprime, imprime o contéudo de forma organizada da matriz de a
-     * djacencias que representa as estações de taxí.
+     * O mÃ©todo imprime, imprime o contÃ©udo de forma organizada da matriz de a
+     * djacencias que representa as estaÃ§Ãµes de taxÃ­.
      */
     public void imprime(){
         for(int i=0;i < this.adjacenciesMatrix.length;i++){
@@ -122,8 +123,8 @@ public class Maps {
         }
     }
     /**
-     * O método imprime2, imprime todo o contéudo de forma organizada da matriz
-     * de adjacencias que representa as estações de ônibus.
+     * O mÃ©todo imprime2, imprime todo o contÃ©udo de forma organizada da matriz
+     * de adjacencias que representa as estaÃ§Ãµes de Ã´nibus.
      */
     public void imprime2(){
         for (int[] stationBusTaxi1 : this.stationBusTaxi) {
@@ -135,8 +136,8 @@ public class Maps {
         }
     }
     /**
-     * O método dijkstra retorna o menor caminho entre quaisquer dois vertces
-     * só que este método é para grafos não direcionados o que é o caso de qualquer
+     * O mÃ©todo dijkstra retorna o menor caminho entre quaisquer dois vertces
+     * sÃ³ que este mÃ©todo Ã© para grafos nÃ£o direcionados o que Ã© o caso de qualquer
      * uma das matrizes de adjacencias usadas neste projeto
      * @param u vertice de partida
      * @param v vertice de destino
@@ -180,13 +181,13 @@ public class Maps {
         return piFiltrade;
     }
     /**
-     * O método filterDijkstra filtra recursivamente o vetor que contém o menor
+     * O mÃ©todo filterDijkstra filtra recursivamente o vetor que contÃ©m o menor
      * caminho no caso de Dijkstra, ele filtra o vetor pi
-     * @param pi vetor que contén o menor caminho
+     * @param pi vetor que contÃ©n o menor caminho
      * @param u vertice de origem
      * @param v vertice de destino
-     * @param smallerPath array que conterá o menor caminho filtrado
-     * @return um vetor que contém o menor caminho, agora filtrado
+     * @param smallerPath array que conterÃ¡ o menor caminho filtrado
+     * @return um vetor que contÃ©m o menor caminho, agora filtrado
      */
     public int filterDijkstra(int[] pi,int u, int v, 
             ArrayList<Integer> smallerPath){
@@ -197,8 +198,8 @@ public class Maps {
         return 0;
     }
     /**
-     * O método setBeta inicia o vetor beta com cada um de seus elementos contendo
-     * infinito, ou seja, um número tão grande quanto possivel
+     * O mÃ©todo setBeta inicia o vetor beta com cada um de seus elementos contendo
+     * infinito, ou seja, um nÃºmero tÃ£o grande quanto possivel
      * @param tamanho tamanho do vetor
      * @return retorna um vetor com cada elemento igual a infinito
      */
@@ -211,10 +212,10 @@ public class Maps {
         return gama;
     }
     /**
-     * O método alpha retorna o peso da aresta a(w,r)
+     * O mÃ©todo alpha retorna o peso da aresta a(w,r)
      * @param w vertice de origem
      * @param r vertice de destino
-     * @return retorna um inteiro que é o peso da aresta a(w,r)
+     * @return retorna um inteiro que Ã© o peso da aresta a(w,r)
      */
     public int alpha(int w, int r){
         int edge;
@@ -225,11 +226,11 @@ public class Maps {
         return edge;
     }
     /**
-     * O método edges retorna as ligações de um vertice passado como parâmetro,
-     * ou seja, retorna os vertices que estão ligados por meio de arestas a(v,x)
-     * isso para a matriz de adjacencias que representa as estações de taxí
-     * @param vertice vertice que será retornado suas ligações (arestas)
-     * @return retorna um vetor que contén as ligações de vertice
+     * O mÃ©todo edges retorna as ligaÃ§Ãµes de um vertice passado como parÃ¢metro,
+     * ou seja, retorna os vertices que estÃ£o ligados por meio de arestas a(v,x)
+     * isso para a matriz de adjacencias que representa as estaÃ§Ãµes de taxÃ­
+     * @param vertice vertice que serÃ¡ retornado suas ligaÃ§Ãµes (arestas)
+     * @return retorna um vetor que contÃ©n as ligaÃ§Ãµes de vertice
      */
     public ArrayList<Integer> edges(int vertice){
         ArrayList<Integer> eadge = new ArrayList<Integer>();
@@ -242,7 +243,7 @@ public class Maps {
         return eadge;
     }
     /**
-     * O método setAdjacenciesMatriz recebe um argumento que é uma 
+     * O mÃ©todo setAdjacenciesMatriz recebe um argumento que Ã© uma 
      * matriz de adjacencias
      * @param mat matriz de adjacencias
      */
@@ -250,9 +251,9 @@ public class Maps {
         this.adjacenciesMatrix = mat;
     }
     /**
-     * O método geniricGeneratorStation cria estações de ônibus ou trem
-     * @param limiteStation vetor com constantes necessarias para a geração das estações
-     * @param adjacenciesMatrix matriz de adjacencias que será setada
+     * O mÃ©todo geniricGeneratorStation cria estaÃ§Ãµes de Ã´nibus ou trem
+     * @param limiteStation vetor com constantes necessarias para a geraÃ§Ã£o das estaÃ§Ãµes
+     * @param adjacenciesMatrix matriz de adjacencias que serÃ¡ setada
      */
     private void geniricGeneratorStation(int[] limiteStation, int[][] adjacenciesMatrix){
         int iterador = 0, j=1;
@@ -269,17 +270,17 @@ public class Maps {
         }
     }
     /**
-     * O método generatorBusTaxiStation invoca o método generatorBusTaxiStation
-     * passando um vetor de constantes que condizem para a criação das estações
-     * de ônibus.
+     * O mÃ©todo generatorBusTaxiStation invoca o mÃ©todo generatorBusTaxiStation
+     * passando um vetor de constantes que condizem para a criaÃ§Ã£o das estaÃ§Ãµes
+     * de Ã´nibus.
      */
     public void generatorBusTaxiStation(){
         final int[] LIMITESTATION = {2,4,7};
         this.geniricGeneratorStation(LIMITESTATION, this.stationBusTaxi);
     }
     /**
-     * O método generatorTrainTaxiStation invoca o método generatorBusTaxiStation
-     * passando um vetor de constantes que condizem para a criação das estações
+     * O mÃ©todo generatorTrainTaxiStation invoca o mÃ©todo generatorBusTaxiStation
+     * passando um vetor de constantes que condizem para a criaÃ§Ã£o das estaÃ§Ãµes
      * de trem.
      */
     public void generatorTrainTaxiStation(){
@@ -287,10 +288,10 @@ public class Maps {
         this.geniricGeneratorStation(LIMITESTATION, this.stationTrainBus);
     }
     /**
-     * O método possibleEges retorna as possivéis ligações de um vertice passado
-     * como parâmetro
-     * @param vertce vertice que será analido suas possiveis ligações
-     * @return um vetor com as possiveis ligações do vertice
+     * O mÃ©todo possibleEges retorna as possivÃ©is ligaÃ§Ãµes de um vertice passado
+     * como parÃ¢metro
+     * @param vertce vertice que serÃ¡ analido suas possiveis ligaÃ§Ãµes
+     * @return um vetor com as possiveis ligaÃ§Ãµes do vertice
      */
     public int[] possibleEges(int vertce){
         int[] edges = new int[2];
@@ -304,11 +305,11 @@ public class Maps {
         return edges;
     }
     /**
-     * O método thereEdge retorna true se existe uma aresta que liga dois vertices
-     * passados como parâmetros
+     * O mÃ©todo thereEdge retorna true se existe uma aresta que liga dois vertices
+     * passados como parÃ¢metros
      * @param vertcePartida vertice de partida
      * @param vertceDestino vertice de destino
-     * @return retorna true se existir uma ligação, caso contrário retorna false
+     * @return retorna true se existir uma ligaÃ§Ã£o, caso contrÃ¡rio retorna false
      */
     public boolean thereEdge(int vertcePartida, int vertceDestino){
         return this.thereEdge(vertcePartida, vertceDestino, this.adjacenciesMatrix);
@@ -322,12 +323,12 @@ public class Maps {
         return state;
     }
     /**
-     * O método returnEdge retorna as ligações de um vertice passado como parâmetro
-     * da matriz de adjacencias que representa as estações de taxí, ou da matriz
-     * de adjacencias que representa as estações de trem
-     * @param vertce vertice que será analido
-     * @param busTrainSelector boolean para a seleção da matriz
-     * @return um vetor com as ligações do vertice em uma das matrizes
+     * O mÃ©todo returnEdge retorna as ligaÃ§Ãµes de um vertice passado como parÃ¢metro
+     * da matriz de adjacencias que representa as estaÃ§Ãµes de taxÃ­, ou da matriz
+     * de adjacencias que representa as estaÃ§Ãµes de trem
+     * @param vertce vertice que serÃ¡ analido
+     * @param busTrainSelector boolean para a seleÃ§Ã£o da matriz
+     * @return um vetor com as ligaÃ§Ãµes do vertice em uma das matrizes
      */
     public ArrayList<Integer> returnEdge(int vertce, boolean busTrainSelector){
         ArrayList<Integer> edges;
@@ -340,10 +341,10 @@ public class Maps {
         return edges;
     }
     /**
-     * O método returnEdgeTrainStation retorna as ligações de um vertice passado
-     * como parâmetro da matriz de adjacencias que representa as estações de trem
-     * @param vertce vertice que será analisado
-     * @return retorna um vetor com as ligações do vertice
+     * O mÃ©todo returnEdgeTrainStation retorna as ligaÃ§Ãµes de um vertice passado
+     * como parÃ¢metro da matriz de adjacencias que representa as estaÃ§Ãµes de trem
+     * @param vertce vertice que serÃ¡ analisado
+     * @return retorna um vetor com as ligaÃ§Ãµes do vertice
      */
     private ArrayList<Integer> returnEdgeTrainStation(int vertce){
         ArrayList<Integer> edges = new ArrayList<>();
@@ -355,10 +356,10 @@ public class Maps {
         return edges;
     }
     /**
-     *O método returnEdgeTrainStation retorna as ligações de um vertice passado
-     * como parâmetro da matriz de adjacencias que representa as estações de ônibus
-     * @param vertce vertice que será analisado
-     * @return retorna um vetor com as ligações do vertice 
+     *O mÃ©todo returnEdgeTrainStation retorna as ligaÃ§Ãµes de um vertice passado
+     * como parÃ¢metro da matriz de adjacencias que representa as estaÃ§Ãµes de Ã´nibus
+     * @param vertce vertice que serÃ¡ analisado
+     * @return retorna um vetor com as ligaÃ§Ãµes do vertice 
      */
     public ArrayList<Integer> returnEdgeBusStation(int vertce){
         ArrayList<Integer> edges = new ArrayList<>();
@@ -370,14 +371,14 @@ public class Maps {
         return edges;
     }
     public int incideArestaInStationBusOrTrain(int vertice){
-        int result = 0; //resultado 0 indica que não há ligação em nemhuma das matrizes
+        int result = 0; //resultado 0 indica que nÃ£o hÃ¡ ligaÃ§Ã£o em nemhuma das matrizes
         for(int i=0;i < this.SIZE;i++){
             if(this.stationTrainBus[vertice][i] != 0 || this.stationTrainBus[i][vertice] != 0){
-                result = 1; //resultado 1 indica que há ligação na estação de trem
+                result = 1; //resultado 1 indica que hÃ¡ ligaÃ§Ã£o na estaÃ§Ã£o de trem
                 return result;
             }
             else if(this.stationBusTaxi[vertice][i] != 0 || this.stationBusTaxi[i][vertice] != 0){
-                result = 2; //resultado 2 indica que há ligação na estação de ônibus
+                result = 2; //resultado 2 indica que hÃ¡ ligaÃ§Ã£o na estaÃ§Ã£o de Ã´nibus
             }
         }
         return result;
