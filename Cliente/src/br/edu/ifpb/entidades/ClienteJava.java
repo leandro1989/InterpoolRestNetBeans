@@ -19,7 +19,7 @@ private static int HTTP_COD_SUCESSO = 200;
         Client client = Client.create();
 
         WebResource webResource = client
-           .resource("http://localhost:8080/ServerIPOConect/webresources/interpool/conect");
+           .resource("http://localhost:8080/InterpoolConect/webresources/InterpoolConect/conect");
 
         ClientResponse response = webResource.accept("application/json")
            .get(ClientResponse.class);
