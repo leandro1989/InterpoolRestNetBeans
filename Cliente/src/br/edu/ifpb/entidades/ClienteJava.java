@@ -6,6 +6,11 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.core.spi.scanning.Scanner;
 
+/**
+ * 
+ * @author Leandro Albuquerque
+ */
+
 public class ClienteJava {
 
 private static int HTTP_COD_SUCESSO = 200;
