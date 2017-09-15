@@ -24,10 +24,10 @@ import javax.ws.rs.core.MediaType;
 @Path("InterpoolConect")
 public class InterpoolConect {
 
-    Jogador jogador=new Jogador();
+    //Jogador jogador=new Jogador();
     ArrayList<Integer> ids = new ArrayList<Integer>();
     int id = 0;
-    Maps mapa = new Maps(200,20);
+    final Maps mapa = new Maps(200,20);
     
     @Context
     private UriInfo context;
@@ -52,11 +52,11 @@ public class InterpoolConect {
     @GET
     @Produces("application/json")
     public String getMovimentacao() {
-    	this.jogador.setJogada("bete");
-        this.jogador.setId(ids.get(this.id));
-        this.ids.remove(this.id);
+    	//this.jogador.setJogada("bete");
+        //this.jogador.setId(ids.get(this.id));
+        //this.ids.remove(this.id);
         Gson jog  = new Gson();
-        return jog.toJson(jogador);
+        return jog.toJson(mapa);
     }
 
     /**
