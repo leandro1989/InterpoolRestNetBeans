@@ -19,7 +19,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * REST Web Service
  *
- * @author Leandro
+ * @author Leandro Albuquerque
  */
 @Path("InterpoolConect")
 public class InterpoolConect {
