@@ -1,5 +1,5 @@
-package br.edu.ifpb.entidades;
 
+import br.edu.ifpb.entidades.Jogador;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
