@@ -1,5 +1,7 @@
+package br.edu.ifpb.entidades;
 
 import br.edu.ifpb.entidades.Jogador;
+import br.edu.ifpb.entidades.Maps;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -14,37 +16,38 @@ import com.sun.jersey.core.spi.scanning.Scanner;
 public class ClienteJava {
 
 private static int HTTP_COD_SUCESSO = 200;
+    /**
+     *
+     * @return
+     */
+    public Maps mapas(){
+        Maps mp = null;
+        try {
+            //Recebendo do servidor
+            Client client = Client.create();
 
-  public static void main(String[] args) {
-    Jogador pessoa = new Jogador();
-    String moviment = "Bus";
-    
-    try {
-        //Recebendo do servidor
-        Client client = Client.create();
+            WebResource webResource = client
+               .resource("http://localhost:8080/InterpoolConect/webresources/InterpoolConect/conect");
 
-        WebResource webResource = client
-           .resource("http://localhost:8080/InterpoolConect/webresources/InterpoolConect/conect");
+            ClientResponse response = webResource.accept("application/json")
+               .get(ClientResponse.class);
 
-        ClientResponse response = webResource.accept("application/json")
-           .get(ClientResponse.class);
+            if (response.getStatus() != HTTP_COD_SUCESSO) {
+               throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+            }
+            String output = response.getEntity(String.class);
 
-        if (response.getStatus() != HTTP_COD_SUCESSO) {
-           throw new RuntimeException("Failed : HTTP error code : "
-                + response.getStatus());
-        }
-        String output = response.getEntity(String.class);
+            Gson gson=new Gson();
+            mp =gson.fromJson(output,Maps.class);	
 
-        Gson gson=new Gson();
-        Jogador user=gson.fromJson(output,Jogador.class);	
+      } catch (Exception e) {
 
-        System.out.println(user.getJogada());
-        System.out.println(user.getId());
-
-  } catch (Exception e) {
-
-        e.printStackTrace();
-  }
+            e.printStackTrace();
+      }
+        return mp;
+    }
+    /*
     try {
     //Enviando para o servidor
           Client client = Client.create();
@@ -72,6 +75,5 @@ private static int HTTP_COD_SUCESSO = 200;
     } catch (Exception e) {
           e.printStackTrace();
     }
-    
+   */
   }
-}
