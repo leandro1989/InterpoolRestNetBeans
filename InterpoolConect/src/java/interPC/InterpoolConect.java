@@ -26,9 +26,9 @@ public class InterpoolConect {
 
     //Jogador jogador=new Jogador();
     ArrayList<Integer> ids = new ArrayList<Integer>();
-    int id = 0;
-    final Maps mapa = new Maps(200,20);
-    
+    Maps mapa;
+    boolean comecou;
+
     @Context
     private UriInfo context;
 
@@ -42,28 +42,35 @@ public class InterpoolConect {
         this.ids.add(4);
         this.ids.add(5);
         this.ids.add(6);
+        this.mapa = null;
+        this.comecou = true;
     }
 
     /**
      * Retrieves representation of an instance of interPC.InterpoolConect
+     *
      * @return an instance of java.lang.String
      */
     @Path("conect")
     @GET
     @Produces("application/json")
     public String getMovimentacao() {
-    	//this.jogador.setJogada("bete");
+        //this.jogador.setJogada("bete");
         //this.jogador.setId(ids.get(this.id));
         //this.ids.remove(this.id);
-        Gson jog  = new Gson();
+        if (this.comecou == true) {
+            mapa = new Maps(200, 20);
+            this.comecou = false;
+        };
+        Gson jog = new Gson();
         return jog.toJson(mapa);
     }
 
     /**
      * PUT method for updating or creating an instance of InterpoolConect
+     *
      * @param content representation for the resource
      */
-   
     @PUT
     @Consumes("application/json")
     public void putJson(String content) {
